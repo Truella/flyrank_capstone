@@ -1,0 +1,183 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f172a;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #cbd5e1;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --error: #dc2626;
+  --success: #16a34a;
+  --radius: 10px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  max-width: 540px;
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 2rem 2rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+}
+
+.card-header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.card-header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+form {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text);
+  background: #f8fafc;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: #fff;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea {
+  border-color: var(--error);
+}
+
+.field.invalid input:focus,
+.field.invalid select:focus,
+.field.invalid textarea:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.error {
+  display: block;
+  min-height: 0;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--error);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.field.invalid .error {
+  opacity: 1;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-field input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary);
+}
+
+.checkbox-label {
+  margin-bottom: 0 !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.success {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.success h2 {
+  color: var(--success);
+  margin-bottom: 0.5rem;
+}
+
+.success p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
