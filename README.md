@@ -1,7 +1,7 @@
 # Flyrank Assignment
 
 A portfolio project scaffolded with Next.js, React, TypeScript, Tailwind CSS,
-Supabase, and Prisma.
+Supabase.
 
 This repository contains the Flyrank assignment code, including frontend pages
 and backend integration.
@@ -33,10 +33,3 @@ http://localhost:3000
 - `src/lib/` — shared utilities and helpers
 - `src/hooks/` — custom React hooks
 - `src/types/` — TypeScript types and interfaces
-
-## Notes
-
-- This README now reflects the actual project instead of the default Next.js
-  starter content.
-- If Supabase or Prisma are used, configure the required environment variables
-  and database setup before running the app.
