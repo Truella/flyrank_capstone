@@ -2,7 +2,7 @@
 
 ## Overview
 
-Same feature — a feedback form — implemented twice. The vague prompt
+Same feature, a feedback form, implemented twice. The vague prompt
 (`feat/FE-03-Vague-prompt-implementation`) produced a minimal dark-themed form.
 The structured prompt (`feat/FE-03-structured-prompt-implementation`) produced a
 rewritten form specifying which fields are required vs optional, dependent
@@ -26,8 +26,8 @@ The structured branch adds a skip link, `aria-invalid` and dynamically managed
 `aria-describedby` pointing at each error message, `role="status"` on the
 success banner, `aria-hidden` on decorative required marks, `focus-visible`
 styles, visible disabled states, and `prefers-reduced-motion` support. The vague
-branch signals errors only with a CSS `.invalid` class on plain `<small>` text —
-invisible to screen readers and unlinked from their inputs. Focus handling is
+branch signals errors only with a CSS `.invalid` class on plain `<small>` text,
+which is invisible to screen readers and unlinked from their inputs. Focus handling is
 limited to focusing the first invalid field on submit.
 
 ## Edge Cases
@@ -56,8 +56,16 @@ traceable, reducing guesswork.
 
 ## Conclusion
 
-The structured prompt produced more correct, accessible, and maintainable code,
-at the cost of a bigger diff and more review surface. The vague prompt minimized
-output but invented requirements and missed core UX. The lesson: precise
-prompts — naming required vs optional fields, dependent behavior, accessibility,
-and disabled-state UX — are what make AI-assisted development reliable.
+- **Structured prompt:** produced more correct, accessible, and maintainable
+  code at the cost of a bigger diff and more review surface.
+- **Vague prompt:** minimized output but invented requirements and missed core
+  UX.
+- **Concrete AI fault caught:** the vague branch's validators use
+  `condition || "message"`, so a valid field returns the boolean `true`. That
+  value is rendered into the error element, showing the word "true" in red and
+  marking the field invalid. This keeps a correctly filled form from ever
+  submitting and bounces focus back to the top of the form.
+
+Lesson: precise prompts (naming required vs optional fields, dependent behavior,
+accessibility, and disabled-state UX) are what make AI-assisted development
+reliable.
